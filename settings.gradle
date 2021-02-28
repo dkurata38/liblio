@@ -1,3 +1,5 @@
-rootProject.name = 'liblio-root'
+rootProject.name = "liblio-root"
 
-include 'domain'
+include "domain"
+include "application"
+include "html-presentation"
