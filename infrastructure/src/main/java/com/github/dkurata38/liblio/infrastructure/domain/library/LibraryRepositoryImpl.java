@@ -1,4 +1,4 @@
-package com.github.dkurata38.liblio.infrastructure.library;
+package com.github.dkurata38.liblio.infrastructure.domain.library;
 
 import java.util.List;
 import java.util.Optional;
