@@ -13,12 +13,14 @@ public class LibraryRepositoryImpl implements LibraryRepository {
 	@Override
 	public Iterable<Library> findAll() {
 		return List.of(
-				new Library(new LibraryId(""), new LibraryName("品川図書館"))
+				new Library(new LibraryId("abc"), new LibraryName("品川図書館"))
 		);
 	}
 
 	@Override
 	public Optional<Library> findById(LibraryId libraryId) {
-		return Optional.empty();
+		return Optional.of(
+				new Library(new LibraryId("abc"), new LibraryName("品川図書館"))
+		);
 	}
 }

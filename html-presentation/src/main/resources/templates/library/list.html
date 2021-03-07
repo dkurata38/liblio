@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>図書館</title>
+  <title>LIBLIO</title>
 </head>
 <body>
   <table>
@@ -11,7 +11,7 @@
     </tr>
     <tr th:each="library : ${libraries}">
       <td>
-        <a href="" th:text="${library.name.value}"></a>
+        <a th:href="@{'/library/' + ${library.id.value}}" th:text="${library.name.value}"></a>
       </td>
     </tr>
   </table>
