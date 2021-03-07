@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>図書館</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>名前</th>
+    </tr>
+    <tr th:each="library : ${libraries}">
+      <td>
+        <a href="" th:text="${library.name.value}"></a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
