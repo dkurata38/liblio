@@ -9,17 +9,17 @@ import com.github.dkurata38.liblio.domain.library.LibraryRepository;
 @Service
 public class LibraryService {
 
-	private final LibraryRepository libraryRepository;
+    private final LibraryRepository libraryRepository;
 
-	public LibraryService(LibraryRepository libraryRepository) {
-		this.libraryRepository = libraryRepository;
-	}
+    public LibraryService(LibraryRepository libraryRepository) {
+        this.libraryRepository = libraryRepository;
+    }
 
-	public Iterable<Library> getList() {
-		return libraryRepository.findAll();
-	}
+    public Iterable<Library> getList() {
+        return libraryRepository.findAll();
+    }
 
-	public Optional<Library> getById(LibraryId libraryId) {
-		return libraryRepository.findById(libraryId);
-	}
+    public Optional<Library> getById(LibraryId libraryId) {
+        return libraryRepository.findById(libraryId);
+    }
 }

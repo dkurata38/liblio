@@ -8,10 +8,10 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class MailAddress {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public MailAddress(@NonNull String value) {
-		this.value = value;
-	}
+    public MailAddress(@NonNull String value) {
+        this.value = value;
+    }
 }

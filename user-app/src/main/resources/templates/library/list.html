@@ -5,15 +5,15 @@
   <title>LIBLIO</title>
 </head>
 <body>
-  <table>
-    <tr>
-      <th>名前</th>
-    </tr>
-    <tr th:each="library : ${libraries}">
-      <td>
-        <a th:href="@{'/library/' + ${library.id.value}}" th:text="${library.name.value}"></a>
-      </td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <th>名前</th>
+  </tr>
+  <tr th:each="library : ${libraries}">
+    <td>
+      <a th:href="@{'/library/' + ${library.id.value}}" th:text="${library.name.value}"></a>
+    </td>
+  </tr>
+</table>
 </body>
 </html>

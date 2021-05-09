@@ -14,27 +14,27 @@ import com.github.dkurata38.liblio.domain.bibliography.Title;
 
 @Repository
 public class BibliographyRepositoryImpl implements BibliographyRepository {
-	@Override
-	public Iterable<Bibliography> findAll() {
-		return List.of(
-				new Bibliography(
-						new BibliographyId("aaa"),
-						new Title("品川図書館の本"),
-						List.of(new Author("猫"), new Author("犬")),
-						new Publisher("竹書房跡"),
-						Language.JAPANESE,
-						LocalDate.now(),
-						new ISBN("978-4-7981-3161-0")
-				),
-				new Bibliography(
-						new BibliographyId("bbb"),
-						new Title("他の図書館の本"),
-						List.of(new Author("猫"), new Author("猿")),
-						new Publisher("竹書房"),
-						Language.JAPANESE,
-						LocalDate.now(),
-						new ISBN("978-4-7981-3162-0")
-				)
-		);
-	}
+    @Override
+    public Iterable<Bibliography> findAll() {
+        return List.of(
+            new Bibliography(
+                new BibliographyId("aaa"),
+                new Title("品川図書館の本"),
+                List.of(new Author("猫"), new Author("犬")),
+                new Publisher("竹書房跡"),
+                Language.JAPANESE,
+                LocalDate.now(),
+                new ISBN("978-4-7981-3161-0")
+            ),
+            new Bibliography(
+                new BibliographyId("bbb"),
+                new Title("他の図書館の本"),
+                List.of(new Author("猫"), new Author("猿")),
+                new Publisher("竹書房"),
+                Language.JAPANESE,
+                LocalDate.now(),
+                new ISBN("978-4-7981-3162-0")
+            )
+        );
+    }
 }

@@ -12,16 +12,17 @@ import com.github.dkurata38.liblio.domain.librarian.Username;
 
 @RequiredArgsConstructor
 public class LibrarianUserDetailsService implements UserDetailsService {
-	private final LibrarianRepository librarianRepository;
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return librarianRepository.findByUsername(new Username(username))
-				.map(librarian -> new LibrarianUser(
-						librarian.getLibrarianId().getValue(),
-						librarian.getUsername().getValue(),
-						librarian.getPassword().getValue(),
-						List.of(new SimpleGrantedAuthority("ROLE_USER"))
-				))
-				.orElseThrow(() -> new UsernameNotFoundException("user is not found"));
-	}
+    private final LibrarianRepository librarianRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return librarianRepository.findByUsername(new Username(username))
+            .map(librarian -> new LibrarianUser(
+                librarian.getLibrarianId().getValue(),
+                librarian.getUsername().getValue(),
+                librarian.getPassword().getValue(),
+                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+            ))
+            .orElseThrow(() -> new UsernameNotFoundException("user is not found"));
+    }
 }

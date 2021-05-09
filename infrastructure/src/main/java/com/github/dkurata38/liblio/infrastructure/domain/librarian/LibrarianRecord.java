@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 
 @Data
 public class LibrarianRecord {
-	String librarianId;
-	String libraryId;
-	String username;
-	String password;
-	LocalDateTime createdAt;
-	LocalDateTime updatedAt;
+    String librarianId;
+    String libraryId;
+    String username;
+    String password;
+    LocalDateTime createdAt;
+    LocalDateTime updatedAt;
 }

@@ -15,16 +15,16 @@ import com.github.dkurata38.liblio.domain.user.Username;
 @Service
 @RequiredArgsConstructor
 public class UserRegistrationService {
-	private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-	public UserId register(@NonNull Username username, @NonNull Password password, @NonNull MailAddress mailAddress) {
-		Optional<User> byUsername = userRepository.findByUsername(username);
-		if (byUsername.isPresent()) {
-			throw new IllegalArgumentException();
-		}
-		UserId userId = UserId.generate();
-		User user = new User(userId, username, password, mailAddress);
-		userRepository.create(user);
-		return userId;
-	}
+    public UserId register(@NonNull Username username, @NonNull Password password, @NonNull MailAddress mailAddress) {
+        Optional<User> byUsername = userRepository.findByUsername(username);
+        if (byUsername.isPresent()) {
+            throw new IllegalArgumentException();
+        }
+        UserId userId = UserId.generate();
+        User user = new User(userId, username, password, mailAddress);
+        userRepository.create(user);
+        return userId;
+    }
 }

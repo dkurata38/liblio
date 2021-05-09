@@ -16,23 +16,24 @@ import com.github.dkurata38.liblio.domain.librarian.LibrarianRepository;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	private final LibrarianRepository librarianRepository;
+    private final LibrarianRepository librarianRepository;
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-				.formLogin(formLogin -> {})
-				.authorizeRequests(authorizeRequest -> authorizeRequest.anyRequest().authenticated());
-	}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .formLogin(formLogin -> {
+            })
+            .authorizeRequests(authorizeRequest -> authorizeRequest.anyRequest().authenticated());
+    }
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(new LibrarianUserDetailsService(librarianRepository))
-				.passwordEncoder(passwordEncoder());
-	}
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(new LibrarianUserDetailsService(librarianRepository))
+            .passwordEncoder(passwordEncoder());
+    }
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

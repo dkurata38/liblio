@@ -9,10 +9,10 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Password {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public Password(@NonNull String value) {
-		this.value = value;
-	}
+    public Password(@NonNull String value) {
+        this.value = value;
+    }
 }

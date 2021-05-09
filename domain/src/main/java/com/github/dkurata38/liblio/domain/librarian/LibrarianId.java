@@ -3,16 +3,15 @@ package com.github.dkurata38.liblio.domain.librarian;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 @EqualsAndHashCode
 @ToString
 public class LibrarianId {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public LibrarianId(@NonNull String value) {
-		this.value = value;
-	}
+    public LibrarianId(@NonNull String value) {
+        this.value = value;
+    }
 }

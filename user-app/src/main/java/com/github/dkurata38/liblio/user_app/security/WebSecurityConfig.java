@@ -17,35 +17,35 @@ import com.github.dkurata38.liblio.domain.user.UserRepository;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-				.formLogin(formLogin -> {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .formLogin(formLogin -> {
 
-				}).authorizeRequests(authorizeRequest ->
-				authorizeRequest
-						.antMatchers("/", "/register").permitAll()
-						.anyRequest().authenticated()
-		);
-	}
+            }).authorizeRequests(authorizeRequest ->
+            authorizeRequest
+                .antMatchers("/", "/register").permitAll()
+                .anyRequest().authenticated()
+        );
+    }
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-				.userDetailsService(new LiblioUserDetailsService(userRepository))
-				.passwordEncoder(passwordEncoder());
-	}
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .userDetailsService(new LiblioUserDetailsService(userRepository))
+            .passwordEncoder(passwordEncoder());
+    }
 
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

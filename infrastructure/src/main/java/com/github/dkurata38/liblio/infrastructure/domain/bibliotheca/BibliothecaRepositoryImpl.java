@@ -11,14 +11,15 @@ import com.github.dkurata38.liblio.domain.library.LibraryId;
 
 @Repository
 public class BibliothecaRepositoryImpl implements BibliothecaRepository {
-	List<Bibliotheca> bibliothecaList = List.of(
-			new Bibliotheca(new BibliothecaId(""), new LibraryId("abc"), new BibliographyId("aaa")),
-			new Bibliotheca(new BibliothecaId(""), new LibraryId("def"), new BibliographyId("bbb"))
-			);
-	@Override
-	public Iterable<Bibliotheca> findByLibraryId(LibraryId libraryId) {
-		return bibliothecaList.stream()
-				.filter(bibliotheca -> bibliotheca.getLibraryId().equals(libraryId))
-				.collect(Collectors.toList());
-	}
+    List<Bibliotheca> bibliothecaList = List.of(
+        new Bibliotheca(new BibliothecaId(""), new LibraryId("abc"), new BibliographyId("aaa")),
+        new Bibliotheca(new BibliothecaId(""), new LibraryId("def"), new BibliographyId("bbb"))
+    );
+
+    @Override
+    public Iterable<Bibliotheca> findByLibraryId(LibraryId libraryId) {
+        return bibliothecaList.stream()
+            .filter(bibliotheca -> bibliotheca.getLibraryId().equals(libraryId))
+            .collect(Collectors.toList());
+    }
 }

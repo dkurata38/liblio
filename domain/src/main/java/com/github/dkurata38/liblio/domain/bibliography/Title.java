@@ -8,10 +8,10 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"value"})
 @ToString
 public class Title {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public Title(@NonNull String value) {
-		this.value = value;
-	}
+    public Title(@NonNull String value) {
+        this.value = value;
+    }
 }

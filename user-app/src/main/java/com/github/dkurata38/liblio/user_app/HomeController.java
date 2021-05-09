@@ -7,13 +7,13 @@ import com.github.dkurata38.liblio.user_app.security.LiblioUser;
 
 @Controller
 public class HomeController {
-	@GetMapping
-	public String index(
-			@AuthenticationPrincipal LiblioUser liblioUser
-			) {
-		if (liblioUser == null) {
-			return "index_unauthenticated";
-		}
-		return "index";
-	}
+    @GetMapping
+    public String index(
+        @AuthenticationPrincipal LiblioUser liblioUser
+    ) {
+        if (liblioUser == null) {
+            return "index_unauthenticated";
+        }
+        return "index";
+    }
 }

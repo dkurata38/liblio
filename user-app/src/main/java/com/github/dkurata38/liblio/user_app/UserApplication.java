@@ -9,7 +9,7 @@ import com.github.dkurata38.liblio.infrastructure.InfrastructureConfig;
 @SpringBootApplication
 @Import(value = {InfrastructureConfig.class, ApplicationConfig.class})
 public class UserApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(UserApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(UserApplication.class, args);
+    }
 }

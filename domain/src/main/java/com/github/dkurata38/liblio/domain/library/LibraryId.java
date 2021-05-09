@@ -7,10 +7,10 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"value"})
 @ToString
 public class LibraryId {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public LibraryId(String value) {
-		this.value = value;
-	}
+    public LibraryId(String value) {
+        this.value = value;
+    }
 }

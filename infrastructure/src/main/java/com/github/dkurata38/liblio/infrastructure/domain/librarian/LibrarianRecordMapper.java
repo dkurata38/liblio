@@ -5,5 +5,5 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface LibrarianRecordMapper {
-	LibrarianRecord selectByUsername(@Param("username") String username);
+    LibrarianRecord selectByUsername(@Param("username") String username);
 }

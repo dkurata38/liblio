@@ -8,10 +8,10 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"value"})
 @ToString
 public class Publisher {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public Publisher(@NonNull String value) {
-		this.value = value;
-	}
+    public Publisher(@NonNull String value) {
+        this.value = value;
+    }
 }

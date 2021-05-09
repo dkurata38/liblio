@@ -10,17 +10,17 @@ import com.github.dkurata38.liblio.domain.library.LibraryRepository;
 
 @Repository
 public class LibraryRepositoryImpl implements LibraryRepository {
-	@Override
-	public Iterable<Library> findAll() {
-		return List.of(
-				new Library(new LibraryId("abc"), new LibraryName("品川図書館"))
-		);
-	}
+    @Override
+    public Iterable<Library> findAll() {
+        return List.of(
+            new Library(new LibraryId("abc"), new LibraryName("品川図書館"))
+        );
+    }
 
-	@Override
-	public Optional<Library> findById(LibraryId libraryId) {
-		return Optional.of(
-				new Library(new LibraryId("abc"), new LibraryName("品川図書館"))
-		);
-	}
+    @Override
+    public Optional<Library> findById(LibraryId libraryId) {
+        return Optional.of(
+            new Library(new LibraryId("abc"), new LibraryName("品川図書館"))
+        );
+    }
 }

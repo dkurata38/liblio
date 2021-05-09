@@ -8,10 +8,10 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"value"})
 @ToString
 public class BibliographyId {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public BibliographyId(@NonNull String value) {
-		this.value = value;
-	}
+    public BibliographyId(@NonNull String value) {
+        this.value = value;
+    }
 }

@@ -15,33 +15,34 @@ import com.github.dkurata38.liblio.domain.user.Username;
 @Repository
 @RequiredArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
-	private final UserRecordMapper userRecordMapper;
-	@Override
-	public Optional<User> findByUsername(@NonNull Username username) {
-		return Optional.ofNullable(userRecordMapper.selectByUsername(username.getValue()))
-				.map(this::from);
-	}
+    private final UserRecordMapper userRecordMapper;
 
-	@Override
-	public void create(@NonNull User user) {
-		userRecordMapper.insert(from(user));
-	}
+    @Override
+    public Optional<User> findByUsername(@NonNull Username username) {
+        return Optional.ofNullable(userRecordMapper.selectByUsername(username.getValue()))
+            .map(this::from);
+    }
 
-	User from(UserRecord userRecord) {
-		return new User(
-				new UserId(userRecord.getUserId()),
-				new Username(userRecord.getUsername()),
-				new Password(userRecord.getPassword()),
-				new MailAddress(userRecord.getMailAddress())
-		);
-	}
+    @Override
+    public void create(@NonNull User user) {
+        userRecordMapper.insert(from(user));
+    }
 
-	UserRecord from(User user) {
-		UserRecord userRecord = new UserRecord();
-		userRecord.setUserId(user.getUserId().getValue());
-		userRecord.setUsername(user.getUsername().getValue());
-		userRecord.setPassword(user.getPassword().getValue());
-		userRecord.setMailAddress(user.getMailAddress().getValue());
-		return userRecord;
-	}
+    User from(UserRecord userRecord) {
+        return new User(
+            new UserId(userRecord.getUserId()),
+            new Username(userRecord.getUsername()),
+            new Password(userRecord.getPassword()),
+            new MailAddress(userRecord.getMailAddress())
+        );
+    }
+
+    UserRecord from(User user) {
+        UserRecord userRecord = new UserRecord();
+        userRecord.setUserId(user.getUserId().getValue());
+        userRecord.setUsername(user.getUsername().getValue());
+        userRecord.setPassword(user.getPassword().getValue());
+        userRecord.setMailAddress(user.getMailAddress().getValue());
+        return userRecord;
+    }
 }

@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserRecordMapper {
-	UserRecord selectByUsername(@Param("username") String username);
+    UserRecord selectByUsername(@Param("username") String username);
 
-	int insert(UserRecord userRecord);
+    int insert(UserRecord userRecord);
 }

@@ -26,56 +26,57 @@ import com.github.dkurata38.liblio.domain.user.Username;
 @SessionAttributes(types = {RegistrationForm.class})
 @Controller
 public class RegisterUserController {
-	private final UserRegistrationService userRegistrationService;
-	private final AuthenticationManager authenticationManager;
-	private final PasswordEncoder passwordEncoder;
-	@ModelAttribute
-	public RegistrationForm registrationForm() {
-		return new RegistrationForm();
-	}
+    private final UserRegistrationService userRegistrationService;
+    private final AuthenticationManager authenticationManager;
+    private final PasswordEncoder passwordEncoder;
 
-	@GetMapping("register")
-	public String viewRegistrationForm(
-			@ModelAttribute RegistrationForm registrationForm,
-			Model model
-	) {
-		Object errors = model.getAttribute("errors");
-		if (errors != null) {
-			BindingResult bindingResult = (BindingResult) errors;
-			model.addAttribute(BindingResult.MODEL_KEY_PREFIX + bindingResult.getObjectName(), bindingResult);
-		}
-		return "user/register";
-	}
+    @ModelAttribute
+    public RegistrationForm registrationForm() {
+        return new RegistrationForm();
+    }
 
-	@PostMapping("register")
-	public String register(
-			@ModelAttribute RegistrationForm registrationForm,
-			BindingResult bindingResult,
-			RedirectAttributes redirectAttributes,
-			SessionStatus sessionStatus
-	) {
-		if (bindingResult.hasErrors()) {
-			redirectAttributes.addFlashAttribute("errors", bindingResult);
-			return "redirect:/register";
-		}
+    @GetMapping("register")
+    public String viewRegistrationForm(
+        @ModelAttribute RegistrationForm registrationForm,
+        Model model
+    ) {
+        Object errors = model.getAttribute("errors");
+        if (errors != null) {
+            BindingResult bindingResult = (BindingResult) errors;
+            model.addAttribute(BindingResult.MODEL_KEY_PREFIX + bindingResult.getObjectName(), bindingResult);
+        }
+        return "user/register";
+    }
 
-		userRegistrationService.register(
-				new Username(registrationForm.getUsername()),
-				new Password(passwordEncoder.encode(registrationForm.getPassword())),
-				new MailAddress(registrationForm.getMailAddress())
-		);
-		sessionStatus.setComplete();
-		UsernamePasswordAuthenticationToken token =
-				new UsernamePasswordAuthenticationToken(registrationForm.getUsername(), registrationForm.getPassword());
-		Authentication authResult = authenticationManager.authenticate(token);
-		SecurityContextHolder.getContext().setAuthentication(authResult);
-		return "redirect:/";
-	}
+    @PostMapping("register")
+    public String register(
+        @ModelAttribute RegistrationForm registrationForm,
+        BindingResult bindingResult,
+        RedirectAttributes redirectAttributes,
+        SessionStatus sessionStatus
+    ) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("errors", bindingResult);
+            return "redirect:/register";
+        }
+
+        userRegistrationService.register(
+            new Username(registrationForm.getUsername()),
+            new Password(passwordEncoder.encode(registrationForm.getPassword())),
+            new MailAddress(registrationForm.getMailAddress())
+        );
+        sessionStatus.setComplete();
+        UsernamePasswordAuthenticationToken token =
+            new UsernamePasswordAuthenticationToken(registrationForm.getUsername(), registrationForm.getPassword());
+        Authentication authResult = authenticationManager.authenticate(token);
+        SecurityContextHolder.getContext().setAuthentication(authResult);
+        return "redirect:/";
+    }
 }
 
 @Data
 class RegistrationForm {
-	String username;
-	String password;
-	String mailAddress;
+    String username;
+    String password;
+    String mailAddress;
 }

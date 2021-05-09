@@ -9,12 +9,12 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"userId"})
 @ToString
 public class User {
-	@Getter
-	private final UserId userId;
-	@Getter
-	private final Username username;
-	@Getter
-	private final Password password;
-	@Getter
-	private final MailAddress mailAddress;
+    @Getter
+    private final UserId userId;
+    @Getter
+    private final Username username;
+    @Getter
+    private final Password password;
+    @Getter
+    private final MailAddress mailAddress;
 }

@@ -15,28 +15,28 @@ import com.github.dkurata38.liblio.domain.library.LibraryId;
 @RequestMapping("library")
 public class LibraryController {
 
-	private final LibraryService libraryService;
-	private final BibliothecaService bibliothecaService;
+    private final LibraryService libraryService;
+    private final BibliothecaService bibliothecaService;
 
-	public LibraryController(LibraryService libraryService, BibliothecaService bibliothecaService) {
-		this.libraryService = libraryService;
-		this.bibliothecaService = bibliothecaService;
-	}
+    public LibraryController(LibraryService libraryService, BibliothecaService bibliothecaService) {
+        this.libraryService = libraryService;
+        this.bibliothecaService = bibliothecaService;
+    }
 
-	@GetMapping
-	public String list(Model model) {
-		Iterable<Library> libraries = libraryService.getList();
-		model.addAttribute("libraries", libraries);
-		return "library/list";
-	}
+    @GetMapping
+    public String list(Model model) {
+        Iterable<Library> libraries = libraryService.getList();
+        model.addAttribute("libraries", libraries);
+        return "library/list";
+    }
 
-	@GetMapping("{libraryId}")
-	public String get(@PathVariable(value = "libraryId") LibraryId libraryId, Model model) {
-		Library library = libraryService.getById(libraryId)
-				.orElseThrow();
-		Iterable<Bibliography> bibliographies = bibliothecaService.getByLibraryId(libraryId);
-		model.addAttribute("library", library);
-		model.addAttribute("bibliographies", bibliographies);
-		return "library/detail";
-	}
+    @GetMapping("{libraryId}")
+    public String get(@PathVariable(value = "libraryId") LibraryId libraryId, Model model) {
+        Library library = libraryService.getById(libraryId)
+            .orElseThrow();
+        Iterable<Bibliography> bibliographies = bibliothecaService.getByLibraryId(libraryId);
+        model.addAttribute("library", library);
+        model.addAttribute("bibliographies", bibliographies);
+        return "library/detail";
+    }
 }

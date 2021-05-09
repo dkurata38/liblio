@@ -8,13 +8,13 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"value"})
 @ToString
 public class LibraryName {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public LibraryName(@NonNull String value) {
-		if (value.isEmpty()) {
-			throw new IllegalArgumentException();
-		}
-		this.value = value;
-	}
+    public LibraryName(@NonNull String value) {
+        if (value.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        this.value = value;
+    }
 }

@@ -9,7 +9,7 @@ import com.github.dkurata38.liblio.infrastructure.InfrastructureConfig;
 @SpringBootApplication
 @Import({ApplicationConfig.class, InfrastructureConfig.class})
 public class LibrarianApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(LibrarianApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LibrarianApplication.class, args);
+    }
 }

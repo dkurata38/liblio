@@ -14,19 +14,20 @@ import com.github.dkurata38.liblio.domain.library.LibraryId;
 @Repository
 @RequiredArgsConstructor
 public class LibrarianRepositoryImpl implements LibrarianRepository {
-	private final LibrarianRecordMapper librarianRecordMapper;
-	@Override
-	public Optional<Librarian> findByUsername(Username username) {
-		return Optional.ofNullable(librarianRecordMapper.selectByUsername(username.getValue()))
-				.map(this::from);
-	}
+    private final LibrarianRecordMapper librarianRecordMapper;
 
-	Librarian from(LibrarianRecord librarianRecord) {
-		return new Librarian(
-				new LibrarianId(librarianRecord.getLibrarianId()),
-				new LibraryId(librarianRecord.getLibraryId()),
-				new Username(librarianRecord.getUsername()),
-				new Password(librarianRecord.getPassword())
-		);
-	}
+    @Override
+    public Optional<Librarian> findByUsername(Username username) {
+        return Optional.ofNullable(librarianRecordMapper.selectByUsername(username.getValue()))
+            .map(this::from);
+    }
+
+    Librarian from(LibrarianRecord librarianRecord) {
+        return new Librarian(
+            new LibrarianId(librarianRecord.getLibrarianId()),
+            new LibraryId(librarianRecord.getLibraryId()),
+            new Username(librarianRecord.getUsername()),
+            new Password(librarianRecord.getPassword())
+        );
+    }
 }

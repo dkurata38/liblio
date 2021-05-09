@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 
 @Data
 public class UserRecord {
-	private String userId;
-	private String username;
-	private String password;
-	private String mailAddress;
-	private LocalDateTime createdAt;
-	private LocalDateTime updatedAt;
+    private String userId;
+    private String username;
+    private String password;
+    private String mailAddress;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

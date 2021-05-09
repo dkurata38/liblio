@@ -1,9 +1,6 @@
 ---
-name: Implementation issue template
-about: Ticket for implementation feature.
-title: ''
-labels: enhancement
-assignees: ''
+name: Implementation issue template about: Ticket for implementation feature. title: ''
+labels: enhancement assignees: ''
 
 ---
 

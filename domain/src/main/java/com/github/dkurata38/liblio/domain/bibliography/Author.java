@@ -8,10 +8,10 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"value"})
 @ToString
 public class Author {
-	@Getter
-	private final String value;
+    @Getter
+    private final String value;
 
-	public Author(@NonNull String value) {
-		this.value = value;
-	}
+    public Author(@NonNull String value) {
+        this.value = value;
+    }
 }
