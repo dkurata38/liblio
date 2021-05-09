@@ -1,4 +1,4 @@
-package com.github.dkurata38.liblio.html_presentation.security;
+package com.github.dkurata38.liblio.user_app.security;
 
 import lombok.Getter;
 

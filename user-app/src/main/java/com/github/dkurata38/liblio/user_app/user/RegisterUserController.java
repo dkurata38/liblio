@@ -1,4 +1,4 @@
-package com.github.dkurata38.liblio.html_presentation.user;
+package com.github.dkurata38.liblio.user_app.user;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

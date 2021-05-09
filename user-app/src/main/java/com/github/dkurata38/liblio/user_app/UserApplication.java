@@ -1,4 +1,4 @@
-package com.github.dkurata38.liblio.html_presentation;
+package com.github.dkurata38.liblio.user_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,8 +8,8 @@ import com.github.dkurata38.liblio.infrastructure.InfrastructureConfig;
 
 @SpringBootApplication
 @Import(value = {InfrastructureConfig.class, ApplicationConfig.class})
-public class WebApplication {
+public class UserApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(WebApplication.class, args);
+		SpringApplication.run(UserApplication.class, args);
 	}
 }

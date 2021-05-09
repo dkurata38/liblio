@@ -2,5 +2,5 @@ rootProject.name = "liblio-root"
 
 include "domain"
 include "application"
-include "html-presentation"
+include "user-app"
 include "infrastructure"

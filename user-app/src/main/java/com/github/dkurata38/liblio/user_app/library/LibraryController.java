@@ -1,4 +1,4 @@
-package com.github.dkurata38.liblio.html_presentation.library;
+package com.github.dkurata38.liblio.user_app.library;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,6 @@ import com.github.dkurata38.liblio.application.library.LibraryService;
 import com.github.dkurata38.liblio.domain.bibliography.Bibliography;
 import com.github.dkurata38.liblio.domain.library.Library;
 import com.github.dkurata38.liblio.domain.library.LibraryId;
-import com.github.dkurata38.liblio.domain.library.LibraryRepository;
 
 @Controller
 @RequestMapping("library")
