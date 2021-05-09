@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>LIBLIO</title>
+</head>
+<body>
+<h1>サインアップ</h1>
+<form th:action="@{/register}" method="post" th:object="${registrationForm}">
+  <label th:for="username">ユーザー名</label>
+  <input th:field="*{username}" type="text">
+  <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">error!</span>
+
+  <label th:for="password">パスワード</label>
+  <input th:field="*{password}" type="password">
+  <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">error!</span>
+
+  <label th:for="mailAddress">メールアドレス</label>
+  <input th:field="*{mailAddress}" type="text">
+  <span th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}">error!</span>
+
+  <button>アカウントを作成する</button>
+</form>
+</body>
+</html>

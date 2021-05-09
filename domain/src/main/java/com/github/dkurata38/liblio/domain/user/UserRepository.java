@@ -9,4 +9,10 @@ public interface UserRepository {
 	 * @return user
 	 */
 	Optional<User> findByUsername(Username username);
+
+	/**
+	 *
+	 * @param user not {@code null}
+	 */
+	void create(User user);
 }

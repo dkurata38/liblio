@@ -15,4 +15,6 @@ public class User {
 	private final Username username;
 	@Getter
 	private final Password password;
+	@Getter
+	private final MailAddress mailAddress;
 }
