@@ -19,6 +19,7 @@ public class LibrarianUserDetailsService implements UserDetailsService {
         return librarianRepository.findByUsername(new Username(username))
             .map(librarian -> new LibrarianUser(
                 librarian.getLibrarianId().getValue(),
+                librarian.getLibraryId().getValue(),
                 librarian.getUsername().getValue(),
                 librarian.getPassword().getValue(),
                 List.of(new SimpleGrantedAuthority("ROLE_USER"))
