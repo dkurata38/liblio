@@ -3,6 +3,7 @@ package com.github.dkurata38.liblio.librarian_app.security;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,7 +17,7 @@ public class LibrarianUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return librarianRepository.findByUsername(new Username(username))
+        return Optional.ofNullable(librarianRepository.findByUsername(new Username(username)))
             .map(librarian -> new LibrarianUser(
                 librarian.getLibrarianId().getValue(),
                 librarian.getLibraryId().getValue(),

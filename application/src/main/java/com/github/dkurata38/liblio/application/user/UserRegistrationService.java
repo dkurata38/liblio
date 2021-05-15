@@ -18,7 +18,7 @@ public class UserRegistrationService {
     private final UserRepository userRepository;
 
     public UserId register(@NonNull Username username, @NonNull Password password, @NonNull MailAddress mailAddress) {
-        Optional<User> byUsername = userRepository.findByUsername(username);
+        Optional<User> byUsername = Optional.ofNullable(userRepository.findByUsername(username));
         if (byUsername.isPresent()) {
             throw new IllegalArgumentException();
         }
